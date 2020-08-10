@@ -1,1 +1,5 @@
 # re-toastr
+
+
+# Licence
+MIT
