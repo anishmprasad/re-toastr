@@ -1,17 +1,15 @@
 {
   "name": "re-toastr",
-  "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "version": "0.1.0",
+  "description": "a simple toaster plugin in react",
+  "main": "/dist/index.js",
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/anishmprasad/re-toastr.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Anish M Prasad",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/anishmprasad/re-toastr/issues"
   },
