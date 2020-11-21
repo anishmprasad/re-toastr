@@ -1,6 +1,6 @@
 {
   "name": "re-toastr",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "a simple toaster plugin in react",
   "main": "./dist/index.js",
   "scripts": {},
