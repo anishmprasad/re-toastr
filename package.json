@@ -1,8 +1,9 @@
 {
   "name": "re-toastr",
-  "version": "0.1.6",
+  "version": "0.1.8",
   "description": "a simple toaster plugin in react",
-  "main": "./dist/index.js",
+  "main": "./dist/re-toastr.umd.js",
+  "module": "./dist/re-toastr.es.js",
   "scripts": {},
   "repository": {
     "type": "git",
@@ -14,8 +15,9 @@
     "url": "https://github.com/anishmprasad/re-toastr/issues"
   },
   "peerDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-spring": "8.0.27"
   },
   "dependencies": {
     "react-spring": "8.0.27"
