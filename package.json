@@ -1,9 +1,13 @@
 {
   "name": "re-toastr",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "a simple toaster plugin in react",
-  "main": "./dist/re-toastr.umd.js",
+  "main": "./dist/toastr.cjs.js",
+  "unpkg": "./dist/re-toastr.umd.js",
   "module": "./dist/re-toastr.es.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {},
   "repository": {
     "type": "git",

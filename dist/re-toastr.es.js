@@ -1,56 +1,36 @@
 var I = Object.defineProperty;
-var P = (n, o, t) => o in n ? I(n, o, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[o] = t;
-var a = (n, o, t) => P(n, typeof o != "symbol" ? o + "" : o, t);
-import D from "react-dom";
-import * as s from "react";
-import { useTransition as k, animated as T } from "react-spring";
-function L(n) {
+var k = (n, o, t) => o in n ? I(n, o, { enumerable: !0, configurable: !0, writable: !0, value: t }) : n[o] = t;
+var a = (n, o, t) => k(n, typeof o != "symbol" ? o + "" : o, t);
+import P from "react-dom";
+import * as r from "react";
+import { useTransition as M, animated as T } from "react-spring";
+function j(n) {
   return n && n.__esModule && Object.prototype.hasOwnProperty.call(n, "default") ? n.default : n;
 }
-var c = {}, _;
-function M() {
-  if (_) return c;
-  _ = 1;
-  var n = D;
-  if (process.env.NODE_ENV === "production")
-    c.createRoot = n.createRoot, c.hydrateRoot = n.hydrateRoot;
-  else {
-    var o = n.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-    c.createRoot = function(t, e) {
-      o.usingClientEntryPoint = !0;
-      try {
-        return n.createRoot(t, e);
-      } finally {
-        o.usingClientEntryPoint = !1;
-      }
-    }, c.hydrateRoot = function(t, e, r) {
-      o.usingClientEntryPoint = !0;
-      try {
-        return n.hydrateRoot(t, e, r);
-      } finally {
-        o.usingClientEntryPoint = !1;
-      }
-    };
-  }
-  return c;
+var c = {}, b;
+function q() {
+  if (b) return c;
+  b = 1;
+  var n = P;
+  return c.createRoot = n.createRoot, c.hydrateRoot = n.hydrateRoot, c;
 }
-var j = M();
-const q = /* @__PURE__ */ L(j), B = ({ id: n, title: o, onClose: t, close: e }) => /* @__PURE__ */ s.createElement("div", { id: n, className: "Toaster__alert" }, typeof o == "string" ? /* @__PURE__ */ s.createElement("div", { className: "Toaster__alert_text" }, o) : s.cloneElement(o, { onClose: t }), t && e && /* @__PURE__ */ s.createElement(F, { onClose: t })), F = ({ onClose: n }) => /* @__PURE__ */ s.createElement("button", { className: "Toaster__alert_close", type: "button", "aria-label": "Close", onClick: n }, "X");
+var D = q();
+const B = /* @__PURE__ */ j(D), F = ({ id: n, title: o, onClose: t, close: e }) => /* @__PURE__ */ r.createElement("div", { id: n, className: "Toaster__alert" }, typeof o == "string" ? /* @__PURE__ */ r.createElement("div", { className: "Toaster__alert_text" }, o) : r.cloneElement(o, { onClose: t }), t && e && /* @__PURE__ */ r.createElement(L, { onClose: t })), L = ({ onClose: n }) => /* @__PURE__ */ r.createElement("button", { className: "Toaster__alert_close", type: "button", "aria-label": "Close", onClick: n }, "X");
 function Y(n, o) {
-  const t = s.useRef();
-  s.useEffect(() => {
+  const t = r.useRef();
+  r.useEffect(() => {
     t.current = n;
-  }, [n]), s.useEffect(() => {
+  }, [n]), r.useEffect(() => {
     function e() {
       t.current && t.current();
     }
     if (o !== null) {
-      let r = setTimeout(e, o);
-      return () => clearTimeout(r);
+      let s = setTimeout(e, o);
+      return () => clearTimeout(s);
     }
   }, [o]);
 }
-const K = {
+const Q = {
   top: "top",
   "top-left": "top-left",
   "top-right": "top-right",
@@ -64,23 +44,23 @@ const K = {
     alignItems: "center"
   };
   return n.includes("right") ? o.alignItems = "flex-end" : n.includes("left") && (o.alignItems = "flex-start"), o;
-}, U = ({
+}, z = ({
   id: n,
   message: o,
   position: t,
   onRequestRemove: e,
-  requestClose: r = !1,
+  requestClose: s = !1,
   duration: i = 3e4,
   onClose: f = !0
 }) => {
-  const l = s.useRef(null), [b, p] = s.useState(i), [g, E] = s.useState(!0), v = t === "top-left" || t === "top-right" || t === "top";
-  Y(m, b);
-  const N = k(g, null, {
+  const l = r.useRef(null), [S, y] = r.useState(i), [g, E] = r.useState(!0), R = t === "top-left" || t === "top-right" || t === "top";
+  Y(m, S);
+  const _ = M(g, null, {
     config: { mass: 1, tension: 185, friction: 26 },
     from: {
       opacity: 1,
       height: 0,
-      transform: `translateY(${v ? "-100%" : 0}) scale(1)`
+      transform: `translateY(${R ? "-100%" : 0}) scale(1)`
     },
     enter: () => (d) => d({
       opacity: 1,
@@ -92,44 +72,44 @@ const K = {
       height: 0,
       transform: "translateY(0 scale(0.9)"
     },
-    onRest: w
-  }), S = s.useMemo(() => $(t), [t]);
+    onRest: x
+  }), N = r.useMemo(() => $(t), [t]);
   function C() {
-    p(null);
-  }
-  function O() {
-    p(i);
+    y(null);
   }
   function w() {
+    y(i);
+  }
+  function x() {
     g || e();
   }
   function m() {
     E(!1);
   }
-  s.useEffect(() => {
-    r && E(!1);
-  }, [r]);
-  function x() {
-    return typeof o == "string" || s.isValidElement(o) ? /* @__PURE__ */ s.createElement(B, { id: n, title: o, onClose: m, close: f }) : typeof o == "function" ? o({
+  r.useEffect(() => {
+    s && E(!1);
+  }, [s]);
+  function A() {
+    return typeof o == "string" || r.isValidElement(o) ? /* @__PURE__ */ r.createElement(F, { id: n, title: o, onClose: m, close: f }) : typeof o == "function" ? o({
       id: n,
       onClose: m
     }) : null;
   }
-  return /* @__PURE__ */ s.createElement(s.Fragment, null, N.map(
-    ({ key: d, item: A, props: h }) => A && /* @__PURE__ */ s.createElement(
+  return /* @__PURE__ */ r.createElement(r.Fragment, null, _.map(
+    ({ key: d, item: O, props: h }) => O && /* @__PURE__ */ r.createElement(
       T.div,
       {
         key: d,
         className: "Toaster__message",
         onMouseEnter: C,
-        onMouseLeave: O,
+        onMouseLeave: w,
         style: {
           opacity: h.opacity,
           height: h.height,
-          ...S
+          ...N
         }
       },
-      /* @__PURE__ */ s.createElement(
+      /* @__PURE__ */ r.createElement(
         T.div,
         {
           style: {
@@ -139,7 +119,7 @@ const K = {
           ref: l,
           className: "Toaster__message-wrapper"
         },
-        x()
+        A()
       )
     )
   ));
@@ -150,16 +130,16 @@ const K = {
   "bottom-left": [],
   bottom: [],
   "bottom-right": []
-}, u = class u extends s.Component {
+}, u = class u extends r.Component {
   constructor(t) {
     super(t);
     a(this, "state", V);
     a(this, "notify", (t, e) => {
-      const r = this.createToastState(t, e), { position: i } = r, f = i.includes("top");
+      const s = this.createToastState(t, e), { position: i } = s, f = i.includes("top");
       return this.setState((l) => ({
         ...l,
-        [i]: f ? [r, ...l[i]] : [...l[i], r]
-      })), { id: r.id, position: r.position };
+        [i]: f ? [s, ...l[i]] : [...l[i], s]
+      })), { id: s.id, position: s.position };
     });
     a(this, "closeAll", () => {
       Object.keys(this.state).forEach((t) => {
@@ -170,22 +150,22 @@ const K = {
       });
     });
     a(this, "createToastState", (t, e) => {
-      const r = ++u.idCounter, i = e.hasOwnProperty("position") && typeof e.position == "string" ? e.position : "top";
+      const s = ++u.idCounter, i = e.hasOwnProperty("position") && typeof e.position == "string" ? e.position : "top";
       return {
-        id: r,
+        id: s,
         message: t,
         position: i,
         showing: !0,
         duration: typeof e.duration > "u" ? 5e3 : e.duration,
-        onRequestRemove: () => this.removeToast(String(r), i),
+        onRequestRemove: () => this.removeToast(String(s), i),
         type: e.type,
         onClose: e.close
       };
     });
     a(this, "closeToast", (t, e) => {
-      this.setState((r) => ({
-        ...r,
-        [e]: r[e].map((i) => i.id !== t ? i : {
+      this.setState((s) => ({
+        ...s,
+        [e]: s[e].map((i) => i.id !== t ? i : {
           ...i,
           requestClose: !0
         })
@@ -193,9 +173,9 @@ const K = {
     });
     // actually fully remove the toast
     a(this, "removeToast", (t, e) => {
-      this.setState((r) => ({
-        ...r,
-        [e]: r[e].filter((i) => i.id !== t)
+      this.setState((s) => ({
+        ...s,
+        [e]: s[e].filter((i) => i.id !== t)
       }));
     });
     a(this, "getStyle", (t) => {
@@ -211,15 +191,15 @@ const K = {
   }
   render() {
     return Object.keys(this.state).map((t) => {
-      const e = t, r = this.state[e];
-      return /* @__PURE__ */ s.createElement("span", { key: t, className: "Toaster__manager-" + e, style: this.getStyle(e) }, r.map((i) => /* @__PURE__ */ s.createElement(U, { position: e, key: i.id, ...i })));
+      const e = t, s = this.state[e];
+      return /* @__PURE__ */ r.createElement("span", { key: t, className: "Toaster__manager-" + e, style: this.getStyle(e) }, s.map((i) => /* @__PURE__ */ r.createElement(z, { position: e, key: i.id, ...i })));
     });
   }
 };
 a(u, "idCounter", 0);
-let y = u;
-const W = typeof window < "u" && typeof window.document < "u", R = "toast";
-class z {
+let p = u;
+const W = typeof window < "u" && typeof window.document < "u", v = "toast";
+class X {
   constructor() {
     a(this, "createNotification", () => {
     });
@@ -243,18 +223,18 @@ class z {
     if (!W)
       return;
     let o;
-    const t = document.getElementById(R);
+    const t = document.getElementById(v);
     if (t)
       o = t;
     else {
-      const r = document.createElement("div");
-      r.id = R, r.className = "Toaster", document.body != null && document.body.appendChild(r), o = r;
+      const s = document.createElement("div");
+      s.id = v, s.className = "Toaster", document.body != null && document.body.appendChild(s), o = s;
     }
-    q.createRoot(o).render(/* @__PURE__ */ s.createElement(y, { notify: this.bindNotify }));
+    B.createRoot(o).render(/* @__PURE__ */ r.createElement(p, { notify: this.bindNotify }));
   }
 }
-const Q = new z();
+const U = new X();
 export {
-  K as Position,
-  Q as default
+  Q as Position,
+  U as default
 };
